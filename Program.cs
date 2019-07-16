@@ -56,7 +56,35 @@ namespace conditionals
 
       if (name.Equals(name2, StringComparison.Ordinal)) {
           System.Console.WriteLine("The names are equal");
+
+
+
       }
+
+        int i = 1;
+      while (i <= 10)
+      {
+          if(i % 2 == 0)
+          {
+              i++;
+              continue;
+          }
+          if (i == 9) break;
+
+          System.Console.WriteLine(i);
+      }
+
+
+        Random rnd = new Random();
+        int secretNumber = rnd.Next(1, 11);
+
+        int numberGuessed = 0;
+
+      do {
+          System.Console.Write("Enter a number between 1 and 10 : ");
+          numberGuessed = Convert.ToInt32(Console.ReadLine());
+
+      } while (secretNumber != numberGuessed);
     }
   }
 }
