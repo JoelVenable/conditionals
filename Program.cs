@@ -28,63 +28,110 @@ namespace conditionals
       }
 
 
-      if (( age > 14 ) || ( age < 19)) {
-          System.Console.WriteLine("You should'nt work.");
+      if ((age > 14) || (age < 19))
+      {
+        System.Console.WriteLine("You should'nt work.");
       }
 
       bool canDrive = age >= 16;
 
-      switch (age) {
-          case 1:
-          case 2:
+      switch (age)
+      {
+        case 1:
+        case 2:
+          {
             System.Console.WriteLine("Go to daycare");
             break;
-            case 3:
-            case 4:
-                System.Console.WriteLine("Go to preschool");
-                break;
-            case 5:
+
+          }
+        case 3:
+        case 4:
+          {
+            System.Console.WriteLine("Go to preschool");
+            break;
+
+          }
+        case 5:
+          {
             System.Console.WriteLine("Go to kindergarten");
             break;
-            default:
-                System.Console.WriteLine("Go to another school");
+
+          }
+        default:
+          {
+
+            System.Console.WriteLine("Go to another school");
+            break;
+          }
       }
 
 
       string name = "Derek";
       string name2 = "Derek";
 
-      if (name.Equals(name2, StringComparison.Ordinal)) {
-          System.Console.WriteLine("The names are equal");
+      if (name.Equals(name2, StringComparison.Ordinal))
+      {
+        System.Console.WriteLine("The names are equal");
 
 
 
       }
 
-        int i = 1;
+      int i = 1;
       while (i <= 10)
       {
-          if(i % 2 == 0)
-          {
-              i++;
-              continue;
-          }
-          if (i == 9) break;
+        if (i % 2 == 0)
+        {
+          i++;
+          continue;
+        }
+        if (i == 9) break;
 
-          System.Console.WriteLine(i);
+        System.Console.WriteLine(i);
+        i++;
       }
 
 
-        Random rnd = new Random();
-        int secretNumber = rnd.Next(1, 11);
+      Random rnd = new Random();
+      int secretNumber = rnd.Next(1, 11);
 
-        int numberGuessed = 0;
+      int numberGuessed = 0;
 
-      do {
-          System.Console.Write("Enter a number between 1 and 10 : ");
-          numberGuessed = Convert.ToInt32(Console.ReadLine());
+      do
+      {
+        System.Console.Write("Enter a number between 1 and 10 : ");
+        numberGuessed = Convert.ToInt32(Console.ReadLine());
 
       } while (secretNumber != numberGuessed);
+
+      double num1 = 5;
+      double num2 = 0;
+
+      try
+      {
+        System.Console.WriteLine("5 / 0 = {0",
+        DoDivision(num1, num2));
+      }
+      catch (DivideByZeroException ex)
+      {
+        System.Console.WriteLine("You can't do that!!!");
+        System.Console.WriteLine(ex.GetType().Name);
+        System.Console.WriteLine(ex.Message);
+      }
+      finally
+      {
+        System.Console.WriteLine("Cleanup...");
+      }
+
+    }
+
+    static double DoDivision(double x, double y)
+    {
+      if (y == 0)
+      {
+        throw new System.DivideByZeroException();
+      }
+      return x / y;
     }
   }
 }
